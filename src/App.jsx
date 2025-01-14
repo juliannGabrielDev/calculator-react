@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 
-import { Calculator } from "@/components/Calculator";
-import ConvertionOptions from "@/components/ConvertionOptions";
-import Navbar from "@/components/Navbar";
+import Calculator from "./components/Calculator";
+import ConvertionOptions from "./components/ConvertionOptions";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (

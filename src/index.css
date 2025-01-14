@@ -6,3 +6,6 @@
 .main {
     @apply bg-white max-w-5xl mx-auto p-5 rounded-tl-3xl rounded-tr-3xl lg:rounded-3xl;
 }
+img {
+    @apply block;
+}
