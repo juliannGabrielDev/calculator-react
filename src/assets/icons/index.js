@@ -6,7 +6,7 @@ import Minus from "./minus.svg";
 import Plus from "./plus.svg";
 import Equal from "./equal.svg";
 import Backspace from "./backspace.svg";
-import Point from "./point.svg";
+import Dot from "./point.svg";
 import Number1 from "./number-1.svg";
 import Number2 from "./number-2.svg";
 import Number3 from "./number-3.svg";
@@ -27,7 +27,7 @@ export {
   Plus,
   Equal,
   Backspace,
-  Point,
+  Dot,
   Number1,
   Number2,
   Number3,

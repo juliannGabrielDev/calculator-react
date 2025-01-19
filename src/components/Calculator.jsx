@@ -9,7 +9,7 @@ import {
   Plus,
   Equal,
   Backspace,
-  Point,
+  Dot,
   Number1,
   Number2,
   Number3,
@@ -26,16 +26,18 @@ const Calculator = () => {
   const [inputValue, setInputValue] = useState("0");
 
   const style="h-1/2";
+
   const clear = () => {
     setInputValue("0");
   }
 
-  const handleClick = (e) => {
-    if (inputValue == "0") {
-      setInputValue(`${e.target.value}`);
-    } else {
-      setInputValue((prev) => `${(prev)}${e.target.value}`);
-    }
+  const appendInputValue = (e) => {
+    const {value} = e.target;
+    setInputValue((prev) => (prev === "0" ? value : `${prev}${value}`));
+  }
+
+  const deleteLastChar = () => {
+    setInputValue((prev) => (prev.length === 1 ? "0" : prev.slice(0, -1)));
   }
 
   return (
@@ -49,21 +51,21 @@ const Calculator = () => {
         <Button className="bg-lime-200"><img src={Percentage} alt="Percentage" className={style} /></Button>
         <Button className="bg-lime-200"><img src={Divide} alt="Clear" className={style} /></Button>
         <Button className="bg-lime-200"><img src={XIcon} alt="Clear" className={style} /></Button>
-        <Button onClick={handleClick} value="1"><img src={Number1} alt="1" className={style} /></Button>
-        <Button><img src={Number2} alt="Clear" className={style} /></Button>
-        <Button><img src={Number3} alt="Clear" className={style} /></Button>
+        <Button onClick={appendInputValue} value="1"><img src={Number1} alt="1" className={style} /></Button>
+        <Button onClick={appendInputValue} value="2"><img src={Number2} alt="Clear" className={style} /></Button>
+        <Button onClick={appendInputValue} value="3"><img src={Number3} alt="Clear" className={style} /></Button>
         <Button className="bg-lime-200"><img src={Minus} alt="Clear" className={style} /></Button>
-        <Button><img src={Number4} alt="Clear" className={style} /></Button>
-        <Button><img src={Number5} alt="Clear" className={style} /></Button>
-        <Button><img src={Number6} alt="Clear" className={style} /></Button>
+        <Button onClick={appendInputValue} value="4"><img src={Number4} alt="Clear" className={style} /></Button>
+        <Button onClick={appendInputValue} value="5"><img src={Number5} alt="Clear" className={style} /></Button>
+        <Button onClick={appendInputValue} value="6"><img src={Number6} alt="Clear" className={style} /></Button>
         <Button className="bg-lime-200"><img src={Plus} alt="Clear" className={style} /></Button>
-        <Button><img src={Number7} alt="Clear" className={style} /></Button>
-        <Button><img src={Number8} alt="Clear" className={style} /></Button>
-        <Button><img src={Number9} alt="Clear" className={style} /></Button>
+        <Button onClick={appendInputValue} value="7"><img src={Number7} alt="Clear" className={style} /></Button>
+        <Button onClick={appendInputValue} value="8"><img src={Number8} alt="Clear" className={style} /></Button>
+        <Button onClick={appendInputValue} value="9"><img src={Number9} alt="Clear" className={style} /></Button>
         <Button className="row-span-2 h-full bg-orange-400"><img src={Equal} alt="Clear" className="w-1/2" /></Button>
-        <Button><img src={Number0} alt="Clear" className={style} /></Button>
-        <Button><img src={Point} alt="Clear" /></Button>
-        <Button><img src={Backspace} alt="Clear" className={style} /></Button>
+        <Button onClick={appendInputValue} value="0"><img src={Number0} alt="Clear" className={style} /></Button>
+        <Button onClick={appendInputValue} value="."><img src={Dot} alt="Clear" /></Button>
+        <Button onClick={deleteLastChar}><img src={Backspace} alt="Clear" className={style} /></Button>
       </section>
     </main>
   );
